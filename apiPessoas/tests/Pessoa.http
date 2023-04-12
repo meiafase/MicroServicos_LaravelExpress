@@ -1,0 +1,13 @@
+### Buscar produto por nome
+GET http://localhost:3000/getPessoa
+
+### Cadastrar produto
+POST http://localhost:3000/newPessoa
+Content-Type: application/json
+
+{
+    "idPessoa": "1",
+    "nome": "Samuel",
+    "idade": 20,
+    "cep": "81825255"
+}
