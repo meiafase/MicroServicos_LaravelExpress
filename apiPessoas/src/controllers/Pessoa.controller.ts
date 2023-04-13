@@ -2,6 +2,7 @@ import { PessoaRepository } from "../data/Pessoa.repository";
 import { Request, Response } from 'express';
 import { Pessoa } from "../models/Pessoa.model";
 import Axios from 'axios';
+import { Endereco } from "../models/Endereco.models";
 //import crypto from "crypto";
 
 const repositoryPessoa = new PessoaRepository();
@@ -17,12 +18,18 @@ export class PessoaController {
     }
 
     async cadastrar(request: Request, response: Response) {
-        let { cep } = request.body;
-        let pessoa: Pessoa = request.body
+        let { cep, idPessoa, nome, idade } = request.body;
+        let endereco: Endereco;
         await Axios.get(`https://viacep.com.br/ws/${cep}/json/`).then((res) => {
-            console.log(res.data);
-        });
+            endereco = res.data;
+            let pessoa: Pessoa = {
+                idPessoa: idPessoa,
+                nome: nome,
+                idade: idade,
+                endereco
+            }
 
-        pessoa = repositoryPessoa.incluir(pessoa)
+            pessoa = repositoryPessoa.incluir(pessoa)
+        });
     }
 }
