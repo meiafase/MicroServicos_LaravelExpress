@@ -1,8 +1,8 @@
 import { Endereco } from "./Endereco.models"
 
 export interface Pessoa {
-    idPessoa?: string,
+    idPessoa?: number,
     nome?: string,
-    idade?: number,
+    idade?: string,
     endereco: Endereco
 }
