@@ -1,5 +1,6 @@
 import express from 'express';
 import { router } from './configs/Routes';
+import Pessoa from './models/tables/Pessoa.models.tables';
 
 const app = express();
 const PORT = 3000;
