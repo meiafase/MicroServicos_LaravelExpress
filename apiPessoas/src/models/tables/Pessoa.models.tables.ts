@@ -1,9 +1,9 @@
-import { STRING, Sequelize } from "sequelize";
+import  Sequelize from "sequelize";
 import Conn from '../ConnectionDB';
 
 const Pessoa = Conn.define('pessoa', {
     idPessoa: {
-        type: STRING,
+        type: Sequelize.STRING,
         autoIncrement: true,
         allowNull: false,
         primaryKey: true
